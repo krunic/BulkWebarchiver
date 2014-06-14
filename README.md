@@ -22,3 +22,7 @@ Downloads files stored in Instapaper or Pocket into the webarchive format
 
 - Add authorization for Pocket access token
 
+## Legal
+
+It is your responsibility to make sure that you use only on the content that you have right to download. Author is not responsible for any misuses
+of this software.
