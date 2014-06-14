@@ -1,0 +1,7 @@
+# Don't do IntelliJ files
+*.iml
+*.ipr
+*.iws
+
+# Don't accidentally checkin file that is holding real access keys
+config.yaml

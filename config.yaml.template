@@ -1,0 +1,10 @@
+# Pocket configuration
+
+# Consumer Key
+pockat.consumer.key: 11111-1aaa1a1111a11a1a111a11a1
+
+# URI
+pocket.redirect.uri: "WebArchiver1.0:authorizationFinished"
+
+# Access token
+pocket.access.token: 11aa111a-aa11-1aaa-1aa1-a1a111
