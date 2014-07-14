@@ -10,7 +10,7 @@ Downloads files stored in Instapaper or Pocket into the webarchive format
 ## Pocket Use
 
 - This one would require you to create access_token, as described (here)[http://getpocket.com/developer/docs/authentication]
-- Planning at some future point to automate this process. For the time being, this project is probably only useful to programmers familar with REST
+- Planning at some future point to automate this process. For the time being, this project is probably only useful to programmers familiar with REST
 - Once that is done, you must replace Instaper/Pocket API in the code
 
 ## Dependencies
