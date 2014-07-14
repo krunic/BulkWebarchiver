@@ -137,7 +137,7 @@ def process_pocket(destination_directory, unprocessed_url_list, delete_pocket):
             if return_code == 0:
                 # If we have successfully downloaded, delete from pocket
                 if delete_pocket:
-                    pocket_instance.delete(article['resolved_id']).commit()
+                    pocket_instance.delete(article['item_id']).commit()
             else:
                 # Otherwise, add error to the unprocessed file list and leave it on pocket
                 writer.writerow([url, title])
