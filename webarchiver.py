@@ -128,20 +128,24 @@ def process_pocket(destination_directory, unprocessed_url_list, delete_pocket):
 
         articles = pocket_instance.get()
 
+        # Otherwise, add error to the unprocessed file list and leave it on pocket
         for article in articles[0]['list'].values():
             url = article['resolved_url']
             title = article['resolved_title']
 
-            return_code = create_webarchive(url, destination_directory, title)
+            try:
+                return_code = create_webarchive(url, destination_directory, title)
 
-            if return_code == 0:
-                # If we have successfully downloaded, delete from pocket
-                if delete_pocket:
-                    pocket_instance.delete(article['item_id']).commit()
-            else:
-                # Otherwise, add error to the unprocessed file list and leave it on pocket
-                writer.writerow([url, title])
-                print("Error {CODE} while extracting[{URL}]".format(CODE=return_code, URL=url), file=sys.stderr)
+                if return_code == 0:
+                    # If we have successfully downloaded, delete from pocket
+                    if delete_pocket:
+                        pocket_instance.delete(article['item_id']).commit()
+                else:
+                    print("Error {CODE} while extracting {URL}".format(CODE=return_code, URL=url), file=sys.stderr)
+                    writer.writerow([url, title])
+            except:
+                # In the case of the unexpected error, continue and don't stop processing articles
+                print("Unexpected error while extracting {URL}".format(URL=url), file=sys.stderr)
 
 
 if __name__ == '__main__':
